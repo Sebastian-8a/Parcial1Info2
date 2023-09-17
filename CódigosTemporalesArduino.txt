@@ -167,4 +167,49 @@ void loop(){
 	ledWrite(B10101010); digitalWrite(latchPin, HIGH);delay(1000);
   	ledWrite(B01010101);  delay(1000);
   	
-}				
+}	
+
+
+
+
+
+
+int rclkPin = 4;
+int latchPin = 5;
+int relojPin = 6;
+
+#define TIEMPO 200
+
+void ledWrite(int Rled){
+   shiftOut(rclkPin, relojPin, MSBFIRST,Rled);
+  digitalWrite(latchPin, HIGH);
+   digitalWrite(latchPin, LOW);
+   
+}
+
+
+void setup(){
+  pinMode(rclkPin,OUTPUT);
+  pinMode(latchPin,OUTPUT);
+  pinMode(relojPin,OUTPUT);
+}
+
+
+
+void loop(){
+   	delay(2000);
+	ledWrite(170); delay(1000);
+  	ledWrite(85);  delay(1000);
+  	
+}
+
+    
+
+
+
+
+
+
+
+
+			
